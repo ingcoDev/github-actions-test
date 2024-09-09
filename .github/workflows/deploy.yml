@@ -28,17 +28,13 @@ jobs:
     - name: Build the project
       run: npm run build
 
-    # # 5. Despliega en el servidor usando SSH
-    # - name: Deploy via SSH
-    #   uses: appleboy/ssh-action@v0.1.3
-    #   with:
-    #     host: ${{ secrets.SERVER_HOST }}          # Dirección de tu servidor
-    #     username: ${{ secrets.SSH_USER }}         # Usuario de SSH
-    #     key: ${{ secrets.SSH_PRIVATE_KEY }}       # Llave privada SSH (almacenada en GitHub Secrets)
-    #     port: 22                                 # Puerto SSH, cambia si es necesario
-    #     script: |
-    #       cd /ruta/a/tu/app  # Ruta en tu servidor donde está la app
-    #       git pull origin main  # Obtener los últimos cambios desde el repositorio
-    #       npm install  # Instalar dependencias
-    #       npm run build  # Construir el proyecto Next.js
-    #       pm2 restart tu-app  # Reiniciar tu aplicación con PM2 (si la usas)
+    # 5. Despliega en el servidor usando SSH
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v0.1.3
+      with:
+        host: 44.219.100.39          # Dirección de tu servidor
+        username: ferney_iridian         # Usuario de SSH
+        key: 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       # Llave privada SSH (almacenada en GitHub Secrets)
+        port: 22                                 # Puerto SSH, cambia si es necesario
+        script: |
+          cat /var/www/test.txt
