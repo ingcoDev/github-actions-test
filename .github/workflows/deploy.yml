@@ -32,7 +32,7 @@ jobs:
 
     # 5. Despliega en el servidor usando SSH
     - name: Deploy via SSH
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@1.0.0
       with:
         host: ${{ secrets.SERVER_HOST }}          # Dirección de tu servidor
         username: ${{ secrets.SSH_USER }}         # Usuario de SSH
