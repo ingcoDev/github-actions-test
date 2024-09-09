@@ -32,9 +32,9 @@ jobs:
     - name: Deploy via SSH
       uses: appleboy/ssh-action@v0.1.3
       with:
-        host: 44.219.100.39          # Dirección de tu servidor
-        username: ferney_iridian         # Usuario de SSH
-        key: /home/ferney_iridian/.ssh/github-deploy  # Llave privada SSH (almacenada en GitHub Secrets)
+        host: ${{ secrets.SERVER_HOST }}          # Dirección de tu servidor
+        username: ${{ secrets.SSH_USER }}         # Usuario de SSH
+        key: ${{ secrets.SSH_PRIVATE_KEY }}       # Llave privada SSH (almacenada en GitHub Secrets)
         port: 22                                 # Puerto SSH, cambia si es necesario
         script: |
           cat /var/www/test.txt
